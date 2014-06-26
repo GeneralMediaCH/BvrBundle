@@ -1,0 +1,41 @@
+{
+    "name": "sirgix/BvrBundle",
+    "description": "A bundle with useful functions and template for swiss bvr+",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "Sergio Mendolia",
+            "email": "sergio@mendolia.ch"
+        }
+    ],
+    "keywords": [
+        "BVR",
+        "BVRB",
+        "BVR+"
+    ],
+    "homepage": "http://github.com/sirgix/BvrBundle",
+    "license": [
+        "GPL-v2"
+    ],
+    "require": {
+        "symfony/framework-bundle": "~2.1"
+    },
+    "require-dev": {
+        "symfony/security-bundle": "*",
+        "symfony/yaml": "*",
+        "symfony/class-loader": "*",
+        "symfony/browser-kit": "*",
+        "sensio/framework-extra-bundle": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "sirgix\\BvrBundle": ""
+        }
+    },
+    "target-dir": "sirgix/BvrBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
