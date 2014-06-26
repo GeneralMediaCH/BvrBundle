@@ -15,7 +15,7 @@ Installation
 * Add a new line to your `composer.json` file:
 <pre><code>"require": {
     ...
-    "sirgix/bvr-bundle": "1.0.*"
+    "sirgix/bvr-bundle": "1.0.*@dev"
 }
 </code></pre>
 
