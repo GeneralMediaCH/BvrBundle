@@ -59,7 +59,7 @@ It has been tested with https://github.com/tasmanianfox/MpdfPortBundle
         $bvrRender = $this->get("sirgix.bvr.renderer");
         echo $bvrRender->renderBVR($bvr);//$bvr is an instance of a BVR class
 </code></pre>
-
+/!\ THIS IS STILL WIP
 ### Banks
 Some banks have different ways to use the reference number. PosteBVR is the standard one.
 UbsBVR implements it for the UBS Bank
