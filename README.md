@@ -15,7 +15,7 @@ Installation
 * Add a new line to your `composer.json` file:
 <pre><code>"require": {
     ...
-    "sirgix/BvrBundle": "1.0.*"
+    "sirgix/bvr-bundle": "1.0.*@dev"
 }
 </code></pre>
 
@@ -45,7 +45,7 @@ and fill all the variables:
         route des chemins 4
         1000 tonvillage');//Provide an adress. It will be displayed with nl2br
         $bvr->setPaymentFrom(/*see paymentFor*/);
-        $bvr->setPostalAccount('17-631258-7');
+        $bvr->setPostalAccount('17-6358-7');
         $bvr->setReferenceNumber(23456);
         $bvrRender = $this->get("sirgix.bvr.renderer");
         echo $bvrRender->renderBVR($bvr);
