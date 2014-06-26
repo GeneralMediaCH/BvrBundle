@@ -56,9 +56,9 @@ abstract class AbstractBVR implements BVRInterface
     public function getEncodingLine()
     {
         $cents = $this->amount * 100;
-        $firstpart = $this->type . sprintf('%08d', $cents);
+        $firstpart = $this->type . sprintf('%08s', $cents);
 
-        $secondpart = sprintf('%027d', $this->referenceNumber);
+        $secondpart = sprintf('%027s', $this->referenceNumber);
 
         $encondingLine =
             $firstpart . $this->helper->checkDigit($firstpart) . '>' .
@@ -76,7 +76,7 @@ abstract class AbstractBVR implements BVRInterface
      */
     public function getFormattedReferenceNumber()
     {
-        $ref = sprintf('%027d', $this->referenceNumber . $this->helper->checkDigit($this->referenceNumber));
+        $ref = sprintf('%027s', $this->referenceNumber . $this->helper->checkDigit($this->referenceNumber));
 
         //2 first digits are separated:
         $first2 = substr($ref, 0, 2);
