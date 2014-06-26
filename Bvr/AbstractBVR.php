@@ -55,7 +55,7 @@ abstract class AbstractBVR implements BVRInterface
      */
     public function getEncodingLine()
     {
-        $cents     = floor($this->amount * 100);
+        $cents = $this->amount * 100;
         $firstpart = $this->type . sprintf('%08d', $cents);
 
         $secondpart = sprintf('%027d', $this->referenceNumber);
