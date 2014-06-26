@@ -1,5 +1,5 @@
 {
-    "name": "sirgix/BvrBundle",
+    "name": "sirgix/bvr-bundle",
     "description": "A bundle with useful functions and template for swiss bvr+",
     "type": "symfony-bundle",
     "authors": [
