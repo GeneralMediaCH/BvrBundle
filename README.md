@@ -51,9 +51,9 @@ and fill all the variables:
         echo $bvrRender->renderBVR($bvr);
 </code></pre>
 
-### generate the HTML BVR
+### Generate the HTML to print the BVR
 I have provided some html for the generation of the bvr html template.
-This can be used with mpdf to render a PDF.
+This can be used with mpdf to render a PDF. It should be placed at the end of a page.
 It has been tested with https://github.com/tasmanianfox/MpdfPortBundle
 <pre><code>
         $bvrRender = $this->get("sirgix.bvr.renderer");
