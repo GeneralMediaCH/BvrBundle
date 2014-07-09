@@ -2,39 +2,85 @@
     .encodage {
         font-family: ocrb, courier, monospace;
         text-align: right;
-        vertical-align: bottom;
     }
 
     .bvr {
         height: 106mm;
         width: 210mm;
-
         font-family: ocrb, courier, monospace;
         font-size: 13px;
         margin: 0;
         padding: 0;
-        position: relative;
+        position: absolute;
+        left:0;
+        bottom: 0;
     }
 
-    .bvr > div {
+    .bvr div {
         position: absolute;
+        float:left;
         margin: 0;
         padding: 0;
     }
+    /*+190mm*/
+    .sirgixbvr{
+        position: absolute;
+        font-family: ocrb, courier, monospace;
+        font-size: 12px;
+    }
+    .sirgixbvr-1{
+        top:202.7mm;left:2.54mm;
+    }
+    .sirgixbvr-2{
+        top:202.7mm;left:63.5mm
+    }
+    .sirgixbvr-3{
+        top:223.86mm;right:5.08mm
+    }
+    .sirgixbvr-4{
+        top:232.33mm;left:27.94mm
+    }
+    .sirgixbvr-5{
+        top:241.2mm;left:2.54mm;width:35.56mm;text-align:right;
+    }
+    .sirgixbvr-6{
+        top:241.2mm;left:48.26mm;width:10mm
+    }
+    .sirgixbvr-7{
+        top:249.26mm;left:2.54mm;font-size: 9px
+    }
+    .sirgixbvr-8{
+        top:232.33mm;left:88.9mm
+    }
+    .sirgixbvr-9{
+        top:241.2mm;left:63.5mm;width:35.56mm;text-align:right;
+    }
+    .sirgixbvr-10{
+        top:241.2mm;left:109.22mm;width:10mm
+    }
+    .sirgixbvr-11{
+        top:240.8mm;left:126mm
+    }
+    .sirgixbvr-12{
+        top:257.73mm;left:2.54mm
+    }
+    .sirgixbvr-13{
+        top:284.6mm;right:7.62mm
+    }
+
 </style>
 {% set split = bvr.amount|number_format(2)|split('.') %}
-<div class="bvr">
-    <div style="top:12.7mm;left:2.54mm">{{ bvr.paymentFor|nl2br }}</div>
-    <div style="top:12.7mm;left:63.5mm">{{ bvr.paymentFor|nl2br }}</div>
-    <div style="top:33.86mm;right:5.08mm">{{ bvr.formattedReferenceNumber }}</div>
-    <div style="top:42.33mm;left:27.94mm">{{ bvr.postalAccount }}</div>
-    <div style="top:51.2mm;left:2.54mm;width:35.56mm;text-align:right;">{{ split[0] }}</div>
-    <div style="top:51.2mm;left:48.26mm">{{ split[1] }}</div>
-    <div style="top:59.26mm;left:2.54mm;font-size: 10px">{{ bvr.formattedReferenceNumber }}</div>
-    <div style="top:42.33mm;left:88.9mm">{{ bvr.postalAccount }}</div>
-    <div style="top:51.2mm;left:63.5mm;width:35.56mm;text-align:right;">{{ split[0] }}</div>
-    <div style="top:51.2mm;left:109.22mm">{{ split[1] }}</div>
-    <div style="top:50.8mm;left:126mm">{{ bvr.paymentFrom|nl2br }}</div>
-    <div style="top:67.73mm;left:2.54mm">{{ bvr.paymentFrom|nl2br }}</div>
-    <div style="top:84.6mm;right:7.62mm" class="encodage">{{ bvr.encodingLine }}</div>
-</div>
+
+<div class="sirgixbvr sirgixbvr-1">{{ bvr.paymentFor|nl2br }}</div>
+<div class="sirgixbvr sirgixbvr-2">{{ bvr.paymentFor|nl2br }}</div>
+<div class="sirgixbvr sirgixbvr-3">{{ bvr.formattedReferenceNumber }}</div>
+<div class="sirgixbvr sirgixbvr-4">{{ bvr.postalAccount }}</div>
+<div class="sirgixbvr sirgixbvr-5">{{ split[0] }}</div>
+<div class="sirgixbvr sirgixbvr-6">{{ split[1] }}</div>
+<div class="sirgixbvr sirgixbvr-7">{{ bvr.formattedReferenceNumber }}</div>
+<div class="sirgixbvr sirgixbvr-8" >{{ bvr.postalAccount }}</div>
+<div class="sirgixbvr sirgixbvr-9" >{{ split[0] }}</div>
+<div class="sirgixbvr sirgixbvr-10" >{{ split[1] }}</div>
+<div class="sirgixbvr sirgixbvr-11" >{{ bvr.paymentFrom|nl2br }}</div>
+<div class="sirgixbvr sirgixbvr-12" >{{ bvr.paymentFrom|nl2br }}</div>
+<div class="sirgixbvr sirgixbvr-13 encodage">{{ bvr.encodingLine }}</div>
