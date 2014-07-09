@@ -1,128 +1,40 @@
 <style>
-    .bvr {
-        font-family: arial, sans-serif;
-        font-size: 11px;
-        margin: 0;
-    }
-
-    .recepisse {
-        width: 60mm;
-        padding-left: 3mm;
-    }
-
-    .versement-col1 {
-        width: 68mm;
-    }
-
-    .versement-col2 {
-        font-weight: normal;
-    }
-
-    .premiereligne {
-        font-weight: bold;
-        padding-top: 5mm;
-    }
-
-    .premiereligne .recepisse {
-
-    }
-
-    .premiereligne .versement-col1 {
-        padding-left: 5mm;
-    }
-
-    .deuxiemeligne {
-        padding-top: 12mm;
-    }
-
-    .deuxiemeligne .recepisse {
-        text-align: right;
-        padding-right: 5mm;
-        font-weight: bold;
-    }
-
-    .deuxiemeligne .versement-col1 {
-        text-align: right;
-        padding-right: 5mm;
-        font-weight: bold;
-    }
-
-    .deuxiemeligne .versement-col2 {
-        padding-top: 25mm;
-        padding-left: 5mm;
-    }
-
-    .troisiemeligne {
-    }
-
-    .troisiemeligne .recepisse {
-        font-weight: normal;
-        font-size: 8pt;
-    }
-
     .encodage {
         font-family: ocrb, courier, monospace;
-        padding-right: 3mm;
-        padding-bottom: 3mm;
         text-align: right;
         vertical-align: bottom;
     }
 
-    table {
-        border-collapse: collapse;
+    .bvr {
+        height: 106mm;
+        width: 210mm;
+
+        font-family: ocrb, courier, monospace;
+        font-size: 13px;
+        margin: 0;
+        padding: 0;
+        position: relative;
     }
 
-    td {
-        vertical-align: top;
+    .bvr > div {
+        position: absolute;
+        margin: 0;
+        padding: 0;
     }
-
 </style>
-<table class="bvr" cellspacing="0px" cellpadding="0px">
-    <tr>
-        <td class="recepisse premiereligne">
-            {{ bvr.paymentFor|nl2br }}
-        </td>
-        <td class="versement-col1 premiereligne">
-            {{ bvr.paymentFor|nl2br }}
-        </td>
-        <td class="versement-col2 premiereligne">
-            {{ bvr.formattedReferenceNumber }}
-        </td>
-    </tr>
-    <tr>
-        {% set split = bvr.amount|number_format(2)|split('.') %}
-        <td class="recepisse deuxiemeligne">
-            {{ bvr.postalAccount }}<br>
-            <table style="margin-top: 3mm;font-size: 10pt;margin-left: 0;">
-                <tr>
-                    <td style="width:37mm;text-align: right">{{ split[0] }}</td>
-                    <td style="width:9mm"></td>
-                    <td style="width:6mm">{{ split[1] }}</td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="font-size: 9pt">{{ bvr.formattedReferenceNumber }}</td>
-                </tr>
-
-            </table>
-        </td>
-        <td class="versement-col1 deuxiemeligne">
-            {{ bvr.postalAccount }}<br>
-            <table style="margin-top: 3mm;font-size: 10pt;margin-left: 0;">
-                <tr>
-                    <td style="width:37mm;text-align: right">{{ split[0] }}</td>
-                    <td style="width:9mm"></td>
-                    <td style="width:6mm">{{ split[1] }}</td>
-                </tr>
-            </table>
-        </td>
-        <td class="versement-col2 deuxiemeligne">
-            {{ bvr.paymentFrom|nl2br }}
-        </td>
-    </tr>
-    <tr>
-        <td class="troisiemeligne recepisse">
-            {{ bvr.paymentFrom|nl2br }}
-        </td>
-        <td colspan="2" class="encodage">{{ bvr.encodingLine }}</td>
-    </tr>
-</table>
+{% set split = bvr.amount|number_format(2)|split('.') %}
+<div class="bvr">
+    <div style="top:12.7mm;left:2.54mm">{{ bvr.paymentFor|nl2br }}</div>
+    <div style="top:12.7mm;left:63.5mm">{{ bvr.paymentFor|nl2br }}</div>
+    <div style="top:33.86mm;right:5.08mm">{{ bvr.formattedReferenceNumber }}</div>
+    <div style="top:42.33mm;left:27.94mm">{{ bvr.postalAccount }}</div>
+    <div style="top:51.2mm;left:2.54mm;width:35.56mm;text-align:right;">{{ split[0] }}</div>
+    <div style="top:51.2mm;left:48.26mm">{{ split[1] }}</div>
+    <div style="top:59.26mm;left:2.54mm;font-size: 10px">{{ bvr.formattedReferenceNumber }}</div>
+    <div style="top:42.33mm;left:88.9mm">{{ bvr.postalAccount }}</div>
+    <div style="top:51.2mm;left:63.5mm;width:35.56mm;text-align:right;">{{ split[0] }}</div>
+    <div style="top:51.2mm;left:109.22mm">{{ split[1] }}</div>
+    <div style="top:50.8mm;left:126mm">{{ bvr.paymentFrom|nl2br }}</div>
+    <div style="top:67.73mm;left:2.54mm">{{ bvr.paymentFrom|nl2br }}</div>
+    <div style="top:84.6mm;right:7.62mm" class="encodage">{{ bvr.encodingLine }}</div>
+</div>
