@@ -30,7 +30,7 @@ class UbsBVR extends AbstractBVR
      */
     public function setReferenceNumber($referenceNumber, $params=null)
     {
-        if(is_array($params)){
+        if(!is_array($params)){
             $ubsClientId = $params;
         }else{
             $ubsClientId = $params['ubsclientid'];
