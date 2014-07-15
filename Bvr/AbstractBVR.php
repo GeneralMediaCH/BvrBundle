@@ -103,8 +103,9 @@ abstract class AbstractBVR implements BVRInterface
 
     /**
      * @param mixed $referenceNumber
+     * @param array $params : must be empty unless specified
      */
-    public function setReferenceNumber($referenceNumber)
+    public function setReferenceNumber($referenceNumber,$params=null)
     {
         $this->referenceNumber = $referenceNumber;
     }

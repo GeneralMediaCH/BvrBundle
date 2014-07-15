@@ -42,8 +42,9 @@ interface BVRInterface
 
     /**
      * @param mixed $referenceNumber
+     * @param array $params
      */
-    public function setReferenceNumber($referenceNumber);
+    public function setReferenceNumber($referenceNumber,$params=null);
 
     /**
      * Returns the originally given reference number

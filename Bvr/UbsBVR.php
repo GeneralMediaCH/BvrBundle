@@ -22,12 +22,23 @@ class UbsBVR extends AbstractBVR
      * At UBS they use their internal client ID inside the ref number
      *
      * @param mixed $referenceNumber
-     * @param       $ubsClientId
+     * @param       $params
+     *
+     * @throws \Exception if client id is empty
      *
      * @return void
      */
-    public function setReferenceNumber($referenceNumber, $ubsClientId)
+    public function setReferenceNumber($referenceNumber, $params=null)
     {
+        if(is_array($params)){
+            $ubsClientId = $params;
+        }else{
+            $ubsClientId = $params['ubsclientid'];
+        }
+        if(''.$ubsClientId==''){
+            throw new \Exception("A client id is necessary for ubs bvrs");
+        }
+
         $ref = sprintf('%06d', $ubsClientId);
         $ref .= sprintf('%020d', $referenceNumber);
         $ref .= $this->helper->checkDigit($ref);
