@@ -28,14 +28,14 @@ class UbsBVR extends AbstractBVR
      *
      * @return void
      */
-    public function setReferenceNumber($referenceNumber, $params=null)
+    public function setReferenceNumber($referenceNumber, $params = null)
     {
-        if(!is_array($params)){
+        if (!is_array($params)) {
             $ubsClientId = $params;
-        }else{
+        } else {
             $ubsClientId = $params['ubsclientid'];
         }
-        if(''.$ubsClientId==''){
+        if (''.$ubsClientId == '') {
             throw new \Exception("A client id is necessary for ubs bvrs");
         }
 
