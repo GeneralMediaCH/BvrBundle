@@ -41,7 +41,6 @@ class UbsBVR extends AbstractBVR
 
         $ref = sprintf('%06d', $ubsClientId);
         $ref .= sprintf('%020d', $referenceNumber);
-        $ref .= $this->helper->checkDigit($ref);
 
         $this->referenceNumber = $ref;
     }
