@@ -56,9 +56,9 @@ abstract class AbstractBVR implements BVRInterface
     public function getEncodingLine()
     {
         $cents = $this->amount * 100;
-        $firstpart = $this->type . sprintf('%08s', $cents);
+        $firstpart = $this->type . sprintf('%010s', $cents);
 
-        $secondpart = sprintf('%027s', $this->referenceNumber);
+        $secondpart = sprintf('%026s', $this->referenceNumber);
 
         $encondingLine =
             $firstpart . $this->helper->checkDigit($firstpart) . '>' .
@@ -105,7 +105,7 @@ abstract class AbstractBVR implements BVRInterface
      * @param mixed $referenceNumber
      * @param array $params : must be empty unless specified
      */
-    public function setReferenceNumber($referenceNumber,$params=null)
+    public function setReferenceNumber($referenceNumber, $params = null)
     {
         $this->referenceNumber = $referenceNumber;
     }
@@ -208,6 +208,4 @@ abstract class AbstractBVR implements BVRInterface
     {
         return $this->postalAccount;
     }
-
-
 }
