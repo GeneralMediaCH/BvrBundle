@@ -1,4 +1,4 @@
 services:
     sirgix.bvr.renderer:
             class: sirgix\BvrBundle\Service\BvrService
-            arguments: [@twig]
+            arguments: ["@twig"]
